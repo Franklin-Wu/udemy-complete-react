@@ -4,16 +4,21 @@ console.log('app.js is running!');
 // Use title/subtitle in the template.
 // Render template.
 
+// Only render the subtitle (and p tag) if subtitle exists - logical and operator.
+// Render new p tag - if options.length > 0 "Here are your options" "No options".
+
 var app = {
     title: 'Indecision App',
     subtitle: 'A Sample App',
+    options: ['One', 'Two'],
 };
 
 // JSX - JavaScript XML
 var template = (
     <div>
         <h1>{app.title}</h1>
-        <p>{app.subtitle}</p>
+        {app.subtitle && <p>{app.subtitle}</p>}
+        <p>{(app.options && app.options.length > 0) ? "Here are your options: " + app.options : "No options"}</p>
         <ol>
             <li>Item 1</li>
             <li>Item 2</li>
@@ -30,14 +35,22 @@ var template = (
 
 var user = {
     name: 'Franklin',
-    age: '101',
-    location: 'San Francisco'
+    age: '19',
+    location: 'Hong Kong'
 };
+
+function getLocation(location) {
+    if (location) {
+        return <p>Location: {location}</p>;
+    }
+    // returns Undefined by default
+}
+
 var templateTwo = (
     <div>
-        <h1>{user.name}</h1>
-        <p>Age: {user.age}</p>
-        <p>Location: {user.location}</p>
+        <h1>{user.name ? user.name : 'Anonymous'}</h1>
+        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
+        {getLocation(user.location)}
     </div>
 );
 
