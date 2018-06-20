@@ -1,0 +1,42 @@
+Global Installations:
+
+https:/nodejs.org/en
+node --version
+node --help
+npm --version
+npm --help
+
+sudo npm -g install yarn
+yarn --version
+yarn --help
+
+sudo npm install -g live-server
+live-server --version
+live-server --help
+
+sudo npm install -g babel-cli@6.24.1
+babel --version
+babel --help
+
+
+Visual Code Installations:
+
+Babel ES6/ES7
+Path Intellisense
+
+
+Local Installations:
+
+cd /Users/fwu/Dropbox/Education/udemy-complete-react/01-indecision-app
+
+yarn init
+yarn add babel-preset-react@6.24.1 babel-preset-env@1.5.2
+
+live-server public
+
+babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+
+Node Modules Regeneration:
+
+yarn install
